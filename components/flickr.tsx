@@ -10,7 +10,7 @@ if (typeof window !== 'undefined')
 
 const Flickr = () => {
 
-    const flickrBaseUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all';
+    const flickrBaseUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all';
     const [feed, setFeed] = useState<any>();
     const [filter, setFilter] = useState<string>('');
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
