@@ -3,6 +3,8 @@ import FlickrImage from "./flickerImage";
 import { FlickrImageData } from '../types';
 import styles from '../styles/Flickr.module.css'
 
+const windowRef: any = window;
+
 const Flickr = () => {
 
     const flickrBaseUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all';
@@ -36,15 +38,15 @@ const Flickr = () => {
     };
 
     const loadFeed = (feedUrl: string, callback: (data: any) => void) => {
-        const registeredCallbackName = 'jsonp_callback_' + Math.ceil(100000 * Math.random());
+        const registeredCallbackName: string = 'jsonp_callback_' + Math.ceil(100000 * Math.random());
         const filterFormatted = filter.split(' ').join(',');
 
         const script = document.createElement('script');
         script.src = feedUrl + (feedUrl.indexOf('?') >= 0 ? '&' : '?') + 'jsoncallback=' + registeredCallbackName + '&tags=' + filterFormatted;
         document.body.appendChild(script);
 
-        window[registeredCallbackName] = (data: any) => {
-            delete window[registeredCallbackName];
+        windowRef[registeredCallbackName] = (data: any) => {
+            delete windowRef[registeredCallbackName];
             document.body.removeChild(script);
             callback(data);
         };
