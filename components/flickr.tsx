@@ -3,7 +3,10 @@ import FlickrImage from "./flickerImage";
 import { FlickrImageData } from '../types';
 import styles from '../styles/Flickr.module.css'
 
-const windowRef: any = window;
+var windowRef: any = null;
+
+if (typeof window !== 'undefined')
+    windowRef = window;
 
 const Flickr = () => {
 
@@ -38,6 +41,9 @@ const Flickr = () => {
     };
 
     const loadFeed = (feedUrl: string, callback: (data: any) => void) => {
+        if (!windowRef)
+            return;
+        
         const registeredCallbackName: string = 'jsonp_callback_' + Math.ceil(100000 * Math.random());
         const filterFormatted = filter.split(' ').join(',');
 
