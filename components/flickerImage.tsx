@@ -20,7 +20,7 @@ const FlickrImage: React.FC<FlickerImageProps> = (props: FlickerImageProps) => {
     }, [props.data.tags])
 
     return <div className={styles.imageContainer} key={props.data.link}>
-        <a href={props.data.link} target="_blank">
+        <a href={props.data.link} target="_blank" rel="noreferrer">
             <img src={props.data.media.m} />
         </a>
         <div className={styles.author}>By: <span>{props.data.author}</span></div>
