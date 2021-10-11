@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import FlickrImage from "./flickerImage";
+import { FlickerImageData } from '../types.ts';
 import styles from '../styles/Flickr.module.css'
 
 const Flickr = () => {
-    
+
+    const flickrBaseUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all';
     const [feed, setFeed] = useState<any>();
     const [filter, setFilter] = useState<string>('');
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -16,7 +18,7 @@ const Flickr = () => {
         timeoutRef.current = setTimeout(
             () => {
                 timeoutRef.current = null;
-                loadFeed('http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all', processData);
+                loadFeed(flickrBaseUrl, processData);
             },
             1000
         );

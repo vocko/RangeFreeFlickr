@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { FlickerImageData } from '../types.ts';
 
 import styles from '../styles/FlickrImage.module.css'
 
