@@ -1,5 +1,6 @@
 .imageContainer {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content:flex-start;
@@ -55,4 +56,17 @@
 .imageContainer .author > span {    
     color: #0063DB;
     font-weight: 500;
+}
+
+.imageContainer .allTags {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    min-height: 150px;
+    bottom: 20px;
+    background-image: linear-gradient(to bottom right, #DDD, #FFF 80%);
+}
+
+.imageContainer .allTags.show {
+    display: block;
 }
