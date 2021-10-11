@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import FlickrImage from "./flickerImage";
-import { FlickerImageData } from '../types.ts';
+import { FlickrImageData } from '../types';
 import styles from '../styles/Flickr.module.css'
 
 const Flickr = () => {
@@ -58,7 +58,7 @@ const Flickr = () => {
         {
             !feed?.items || feed.items.length === 0 
                 ? <span>No pictures found for <strong>{filter}</strong></span>
-                :feed?.items?.map((item: FlickerImageData) => <FlickrImage data={item} key={item.link} />)
+                :feed?.items?.map((item: FlickrImageData) => <FlickrImage data={item} key={item.link} />)
         }
         </div>
     </div>;

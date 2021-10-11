@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FlickerImageData } from '../types.ts';
+import { FlickrImageData } from '../types';
 
 import styles from '../styles/FlickrImage.module.css'
 
 type FlickerImageProps = {
-    data: FlickerImageData;
+    data: FlickrImageData;
 };
 
 const FlickrImage: React.FC<FlickerImageProps> = (props: FlickerImageProps) => {
